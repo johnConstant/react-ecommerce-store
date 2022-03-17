@@ -2,58 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 const Stars = ({ rating, reviews }) => {
-    console.log(rating, reviews);
+    const stars = Array.from({ length: 5 }, (_, index) => {
+        const number = index + 0.5;
+        return (
+            <span key={index}>
+                {rating >= index + 1 ? (
+                    <BsStarFill />
+                ) : rating >= number ? (
+                    <BsStarHalf />
+                ) : (
+                    <BsStar />
+                )}
+            </span>
+        );
+    });
+
     return (
         <Wrapper>
-            <div className="stars">
-                {/* Stars */}
-                <span>
-                    {rating >= 1 ? (
-                        <BsStarFill />
-                    ) : rating >= 0.5 ? (
-                        <BsStarHalf />
-                    ) : (
-                        <BsStar />
-                    )}
-                </span>
-                <span>
-                    {rating >= 2 ? (
-                        <BsStarFill />
-                    ) : rating >= 1.5 ? (
-                        <BsStarHalf />
-                    ) : (
-                        <BsStar />
-                    )}
-                </span>
-                <span>
-                    {rating >= 3 ? (
-                        <BsStarFill />
-                    ) : rating >= 2.5 ? (
-                        <BsStarHalf />
-                    ) : (
-                        <BsStar />
-                    )}
-                </span>
-                <span>
-                    {rating >= 4 ? (
-                        <BsStarFill />
-                    ) : rating >= 3.5 ? (
-                        <BsStarHalf />
-                    ) : (
-                        <BsStar />
-                    )}
-                </span>
-                <span>
-                    {rating >= 5 ? (
-                        <BsStarFill />
-                    ) : rating >= 4.5 ? (
-                        <BsStarHalf />
-                    ) : (
-                        <BsStar />
-                    )}
-                </span>
-                {/* End of star */}
-            </div>
+            <div className="stars">{stars}</div>
             <p className="reviews">{reviews} customer reviews</p>
         </Wrapper>
     );

@@ -23,7 +23,6 @@ const SingleProductPage = () => {
         product,
         fetchSingleProduct,
     } = useProductsContext();
-    console.log(product);
 
     const {
         id: sku,
@@ -56,8 +55,6 @@ const SingleProductPage = () => {
     if (error) {
         return <Error />;
     }
-    console.log(product);
-
     return (
         <Wrapper>
             <PageHero title={name} product />

@@ -11,20 +11,15 @@ import {
 
 const products_reducer = (state, action) => {
     if (action.type === SIDEBAR_OPEN) {
-        console.log('opened');
-
         return { ...state, isSidebarOpen: true };
     }
     if (action.type === SIDEBAR_CLOSE) {
-        console.log('closed');
         return { ...state, isSidebarOpen: false };
     }
     if (action.type === GET_PRODUCTS_BEGIN) {
-        console.log('loading');
         return { ...state, products_loading: true };
     }
     if (action.type === GET_PRODUCTS_SUCCESS) {
-        console.log('Got em');
         const featured = action.payload.filter(
             (product) => product.featured === true
         );
@@ -39,7 +34,6 @@ const products_reducer = (state, action) => {
         return { ...state, products_loading: false, products_error: true };
     }
     if (action.type === GET_SINGLE_PRODUCT_BEGIN) {
-        console.log('loading');
         return {
             ...state,
             single_product_loading: true,
@@ -47,7 +41,6 @@ const products_reducer = (state, action) => {
         };
     }
     if (action.type === GET_SINGLE_PRODUCT_SUCCESS) {
-        console.log('Got it');
         return {
             ...state,
             product: action.payload,
