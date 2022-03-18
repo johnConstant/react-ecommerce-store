@@ -41,6 +41,10 @@ export const FilterProvider = ({ children }) => {
         dispatch({ type: UPDATE_SORT, payload: value });
     };
 
+    useEffect(() => {
+        dispatch({ type: SORT_PRODUCTS });
+    }, [state.sort, products]);
+
     return (
         <FilterContext.Provider
             value={{ ...state, setGridView, setListView, updateSort }}
