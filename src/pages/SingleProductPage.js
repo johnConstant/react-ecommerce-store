@@ -55,6 +55,7 @@ const SingleProductPage = () => {
     if (error) {
         return <Error />;
     }
+
     return (
         <Wrapper>
             <PageHero title={name} product />
